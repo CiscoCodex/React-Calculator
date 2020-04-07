@@ -23,6 +23,17 @@ code {
   background-color: darkcyan;
 }
 
+.button-operator {
+  height: 44px;
+  width: 44px;
+  text-align: center;
+  font-size: x-large;
+  color: white;
+  border: darkred;
+  border-radius: 10px;
+  background-color: darkblue;
+}
+
 .solution {
   height: 44px;
   width: 44px;

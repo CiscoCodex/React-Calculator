@@ -4,6 +4,38 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+function Operator(props) {
+  return (
+    <button className="button-operator" onClick={props.onClick}>
+      {props.operator}
+    </button>
+  )
+}
+
+class Calculate extends React.Component {
+  renderOperator(i) {
+    return(
+      <Operator
+        operator={i}
+        onClick={() => this.props.onClick(i)}/>
+    );
+  }
+
+  render() {
+    return(
+      <div>
+        <table>
+          <tr>
+          <td>{this.renderOperator("-")}</td>
+          <td>{this.renderOperator("+")}</td>
+          <td>{this.renderOperator("=")}</td>
+          </tr>
+        </table>
+      </div>
+    );
+  }
+}
+
 function Value(props) {
   return (
     <button className="button-number" onClick={props.onClick}>
@@ -71,6 +103,9 @@ class Calculator extends React.Component {
       <div>
         <div>
         <Number onClick={i => this.handleNumberClick(i)}/>
+        </div>
+        <div>
+        <Calculate onClick={i => this.handleNumberClick(i)}/>
         </div>
         <div className="solution">
           {this.state.input}
