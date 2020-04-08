@@ -88,28 +88,43 @@ class Calculator extends React.Component {
     this.state = {
       input: "",
       firstOperand: null,
-      solution: null
+      solution: null,
+      operator: ""
     }
+  }
+  calculateResult(firstOperand, operator, secondOperand) {
+    switch(operator) {
+      case "+":
+        return parseInt(firstOperand) + parseInt(secondOperand);
+        break;
+      case "-":
+        return parseInt(firstOperand) - parseInt(secondOperand);;
+        break;
+    }
+    return operator;
   }
 
   handleNumberClick(i) {
     this.setState({
       input: this.state.input.concat(i),
+      solution: null
     });
   }
 
   handleOperatorClick(i) {
-    let mySolution = 0;
     if (this.state.firstOperand == null) {
       this.setState({ 
         firstOperand: this.state.input,
         input: "",
-        solution: null
+        solution: null,
+        operator: i
       });
     }
     else {
+      let output = this.state.firstOperand + this.state.operator + this.state.input + "=" +
+      this.calculateResult(this.state.firstOperand, this.state.operator, this.state.input);
       this.setState({
-        solution: parseInt(this.state.firstOperand) + parseInt(this.state.input),
+        solution: output,//this.calculateResult(this.state.firstOperand, this.state.operator, this.state.input),
         input: "",
         firstOperand: null
       });
@@ -130,7 +145,6 @@ class Calculator extends React.Component {
         </div>
         <div className="solution">
           {this.state.input}
-          <br/>
           {this.state.solution}
         </div>
       </div>

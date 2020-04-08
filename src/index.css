@@ -35,8 +35,7 @@ code {
 }
 
 .solution {
-  height: 44px;
-  width: 44px;
   text-align: center;
+  display: inline;
   font-size: x-large;
 }
