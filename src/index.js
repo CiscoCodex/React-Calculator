@@ -28,6 +28,11 @@ class Calculate extends React.Component {
           <tr>
           <td>{this.renderOperator("-")}</td>
           <td>{this.renderOperator("+")}</td>
+          <td>{this.renderOperator("%")}</td>
+          </tr>
+          <tr>
+          <td>{this.renderOperator("*")}</td>
+          <td>{this.renderOperator("/")}</td>
           <td>{this.renderOperator("=")}</td>
           </tr>
         </table>
@@ -85,6 +90,7 @@ class Calculator extends React.Component {
 
   constructor(props) {
     super(props);
+    this.keyDownFunction = this.keyDownFunction.bind(this);
     this.state = {
       input: "",
       firstOperand: null,
@@ -92,13 +98,37 @@ class Calculator extends React.Component {
       operator: ""
     }
   }
+
+  keyDownFunction(event) {
+    var number = event.keyCode - 48;
+    if (number >= 0 && number <= 9) {
+      this.setState({ input: this.state.input.concat(number)});
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.keyDownFunction, false);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.keyDownFunction, false);
+  }
+
   calculateResult(firstOperand, operator, secondOperand) {
     switch(operator) {
       case "+":
         return parseInt(firstOperand) + parseInt(secondOperand);
         break;
       case "-":
-        return parseInt(firstOperand) - parseInt(secondOperand);;
+        return parseInt(firstOperand) - parseInt(secondOperand);
+        break;
+      case "*":
+        return parseInt(firstOperand) * parseInt(secondOperand);
+        break;
+      case "/":
+        return parseInt(firstOperand) / parseInt(secondOperand);
+        break;
+      case "%":
+        return parseInt(firstOperand) % parseInt(secondOperand);
         break;
     }
     return operator;
@@ -121,10 +151,10 @@ class Calculator extends React.Component {
       });
     }
     else {
-      let output = this.state.firstOperand + this.state.operator + this.state.input + "=" +
+      let output = this.state.firstOperand + " " + this.state.operator + " " + this.state.input + " = " +
       this.calculateResult(this.state.firstOperand, this.state.operator, this.state.input);
       this.setState({
-        solution: output,//this.calculateResult(this.state.firstOperand, this.state.operator, this.state.input),
+        solution: output,
         input: "",
         firstOperand: null
       });
@@ -137,15 +167,17 @@ class Calculator extends React.Component {
         <div>
           <h1>React Calculator App</h1>
         </div>
-        <div>
-        <Number onClick={i => this.handleNumberClick(i)}/>
-        </div>
-        <div>
-        <Calculate onClick={i => this.handleOperatorClick(i)}/>
-        </div>
-        <div className="solution">
-          {this.state.input}
-          {this.state.solution}
+        <div className="calculator-body">
+          <div>
+          <Number onClick={i => this.handleNumberClick(i)}/>
+          </div>
+          <div>
+          <Calculate onClick={i => this.handleOperatorClick(i)}/>
+          </div>
+          <div className="solution">
+            {this.state.input}
+            {this.state.solution}
+          </div>
         </div>
       </div>
     );
