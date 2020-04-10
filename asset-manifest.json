@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/CiscoCodex/React-Calculator/static/css/main.0a324a2a.chunk.css",
+    "main.js": "/CiscoCodex/React-Calculator/static/js/main.45b26a0e.chunk.js",
+    "main.js.map": "/CiscoCodex/React-Calculator/static/js/main.45b26a0e.chunk.js.map",
+    "runtime-main.js": "/CiscoCodex/React-Calculator/static/js/runtime-main.d246f08f.js",
+    "runtime-main.js.map": "/CiscoCodex/React-Calculator/static/js/runtime-main.d246f08f.js.map",
+    "static/js/2.91406da6.chunk.js": "/CiscoCodex/React-Calculator/static/js/2.91406da6.chunk.js",
+    "static/js/2.91406da6.chunk.js.map": "/CiscoCodex/React-Calculator/static/js/2.91406da6.chunk.js.map",
+    "index.html": "/CiscoCodex/React-Calculator/index.html",
+    "precache-manifest.4b7c32e86467ad213f78f34ed5db6655.js": "/CiscoCodex/React-Calculator/precache-manifest.4b7c32e86467ad213f78f34ed5db6655.js",
+    "service-worker.js": "/CiscoCodex/React-Calculator/service-worker.js",
+    "static/css/main.0a324a2a.chunk.css.map": "/CiscoCodex/React-Calculator/static/css/main.0a324a2a.chunk.css.map",
+    "static/js/2.91406da6.chunk.js.LICENSE.txt": "/CiscoCodex/React-Calculator/static/js/2.91406da6.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/CiscoCodex/React-Calculator/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d246f08f.js",
+    "static/js/2.91406da6.chunk.js",
+    "static/css/main.0a324a2a.chunk.css",
+    "static/js/main.45b26a0e.chunk.js"
+  ]
+}
