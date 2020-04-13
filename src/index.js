@@ -102,8 +102,10 @@ class Calculator extends React.Component {
   keyDownFunction(event) {
     var number = event.keyCode - 48;
     if (number >= 0 && number <= 9) {
-      this.setState({ input: this.state.input.concat(number)});
+      this.handleNumberClick(number);
     }
+    
+    this.handleNumberClick(event.keyCode);
   }
 
   componentDidMount() {
@@ -164,9 +166,6 @@ class Calculator extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <h1>React Calculator App</h1>
-        </div>
         <div className="calculator-body">
           <div>
           <Number onClick={i => this.handleNumberClick(i)}/>
